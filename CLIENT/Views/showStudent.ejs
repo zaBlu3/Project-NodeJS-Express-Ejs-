@@ -1,0 +1,59 @@
+<%- include('header', {title : "Show Student"})  %> 
+
+<body>
+    
+<div class="container">
+    <h1>displaying student information</h1>
+<% if (student != null) {%> 
+    <table >
+        <THead></THead>
+        <Tbody>
+        <% Object.keys(student).forEach((propertie)=> { %>
+            <tr>
+                <td>
+                    <%=propertie %>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <%if(Array.isArray(student[propertie])){ %>
+
+                        <% for (const element of student[propertie]) { %>
+                            <ul>
+                                <% for( const [key, value] of Object.entries(element)){ %>
+                                    <%if (key != "_id") {%>
+                                    <li>
+                                        
+                                        <%=key %> - <%= key=="date" ? moment(value).format('LLLL') :value %>
+                                        <% } %> 
+
+                                    </li>
+
+                                    <% } %>
+                            </ul>
+                            <% } } else if (student[propertie] instanceof Date) {%>
+                               
+                                <%=propertie == "birthDate" ? student[propertie].toLocaleDateString() : moment(student[propertie]).format( 'LLL') %>
+                               
+                                <% }  else{ %>
+
+                                    <%=student[propertie] %>
+
+
+                                        <% }; %>
+
+                </td>
+
+
+            </tr>
+            <% }) %>
+        </Tbody>
+    </table>
+ <% } else{ %> 
+    <h1> no such student </h1>
+    <% } %> 
+</div>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+html{
+  height: max-content;
+  min-height: 100%;
+  background: linear-gradient(45deg, #FC466B, #3F5EFB);
+  font-family: 'Poppins', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+
+} 
+h1, caption{
+  font-size: 5em;
+  font-weight: 700;
+
+}
+
+.back{
+position: absolute;
+top: 0;
+right: 0;
+color: #FC466B;
+text-shadow: 0px 0px 1px whitesmoke;	
+font-weight: bold;
+
+
+}
+.back2{
+position: absolute;
+top: 0;
+left: 0;
+text-shadow: 0px 0px 1px whitesmoke;	
+color: #3F5EFB;
+font-weight: bold;
+}
+#status{
+  margin :0;
+  font-size: 2em;
+  font-style: bold;
+  color: #D63301;
+  text-shadow: 0px 0px 5px whitesmoke;	
+
+}
+.error 
+ {
+  font-style: bold;
+  color: #D63301;
+  
+	margin: 10px auto;
+	padding: 10px 15px ;
+  
+  
+  text-shadow: 0px 0px 5px red,2px 2px 20px whitesmoke;	
+
+
+  
+}
+ .container {
+  
+
+  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; 
+ 
+} 
+
+table {
+  margin: 0;
+  cursor: default;
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+ 
+}
+
+th,
+ tr, td {
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+form td{
+  width: 300px;
+}
+
+thead
+th {
+  background-color: #55608f;
+}
+
+
+
+a {
+ 
+ color: blue;
+ 
+}
+
+a:hover {
+ text-shadow: 2px 2px 6px #00000040;
+}
+
+a:active {
+ text-shadow: none;
+}
+input {
+  background: transparent;
+  width: 200px;
+  padding: 1em;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:hover {
+  background: rgba(255, 255, 255, 0.1);
+  
+}
+
+
+ input[type=button],input[type=submit] {
+  margin-top: 10px;
+  width: 150px;
+  font-size: 1rem;
+  align-self: center;
+  cursor: pointer;
+}
+input[type=submit]:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+td form input[type=submit]{
+  width: 100px;
+  margin :unset;
+  font-size: unset;
+  padding: unset;
+  height: 30px;
+
+}
+
+
+
+::placeholder {
+  font-family: sans-serif;
+ 
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+

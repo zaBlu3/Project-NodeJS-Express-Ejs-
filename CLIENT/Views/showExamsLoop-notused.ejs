@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+make model for exam and plug it intoi model 
+
+    <% if(exams.length>0) { %>
+
+        <table border="1">
+            <tr>
+                <%for (let key of Object.keys(exams[0])){ 
+                    if (key != "_id") {%> 
+                    
+                     <th><%= key %> </th>
+                <% } }%> 
+                   <th>Edit</th>   
+            </tr>
+            </tr>
+            <% exams.forEach(exam => { %>
+                <tr>
+                    <%for (let key of Object.keys(exam)){  
+                        if (key != "_id") {%>  
+                    <td>
+                        <%= exam[key]%>
+                    </td>
+                    <% } }%> 
+                    <td>
+                        <FORM action="<%= url  %>/edit" method="POST">
+                            <input type="hidden" name="_id" value="<%= exam._id%>" /> 
+                            <button type="submit">edit</button> </FORM>
+                        
+                    </td>
+                    
+                </tr>
+                <% }) %>
+
+        </table>
+        <hr>
+        
+
+        <% } else { %>
+            No Exams Found
+            <% } %>
+            <br>
+        <button onclick= "window.location.href+=`/add`"> add new exam</button>    
+</body>
+
+</html>

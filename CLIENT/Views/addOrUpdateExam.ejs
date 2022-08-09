@@ -1,0 +1,64 @@
+<%- include('header', {title})  %> 
+
+<h1><%= title  %> </h1>
+<a class="back2" href="<%=url.substring(0, url.lastIndexOf('/'))%>" > Back to exam list</a>
+<form <% if (title =="Update Exam") {%> action="?_method=PUT"
+    <%}%>
+method="post" autocomplete="off">
+<h5 id="status">  <%=exam.status %> </h5>
+  
+    <% if(title == "Update Exam"){%> 
+    <input type="hidden" name="_id" value="<%=exam._id%>" /> 
+    <%}%> 
+
+
+    <table>
+
+        <tr>
+            <td>Name : </td>
+            <td>
+                <input autocomplete="none" value="<%=exam.name%>" type="text" placeholder="Enter Name" name="name" required> </td>
+                <td class="error">
+                   
+                        <%=exam.nameError%>
+                   
+                    
+                </td>
+        </tr>
+        <tr>
+            <td> date :</td>
+            <td>
+                <input  autocomplete="none" type="datetime-local" placeholder="Enter date" name="date" required
+                value ="<%=exam.date != undefined && moment(exam.date).format( 'yyyy-MM-DDTHH:mm') %>" 
+                max ="<%=moment().add(4,"years").format( 'yyyy-MM-DDTHH:mm') %>"
+                min="2000-01-01T00:00"
+                >
+               
+                
+            </td>
+            <td class="error">
+                <%=exam.dateError%>
+            </td>
+        </tr>
+        <tr>
+            <td>grade :</td>
+            <td>
+                <input autocomplete="none" value="<%=exam.grade%>" type="number" placeholder="Enter grade" name="grade" required>
+            </td>
+            <td class="error"> 
+                <%=exam.gradeError%>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td></td>
+            <td>
+                <input type="submit" value="<%= title  %> " >
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+
+</html>

@@ -1,0 +1,68 @@
+<%- include('header', {title : "Student Table"})  %> 
+
+
+<body >
+   <div class="limiter">
+
+  
+        <div class="container">
+        ​
+        <% if(students.length>0) { %>
+
+            <table>
+                <caption>all students</caption>
+              <thead  >
+                <tr>
+                    <th>Index</th>
+                    <th>faculty</th>
+                    <th>Email</th>
+                    <th>exams</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+         
+                </tr>
+                <% students.forEach((student,i) => { %>
+                    <tr>
+                        <td>
+                            <%= i %>
+                        </td>
+                        <td>
+                            <a href='students/<%= student._id %>'> <%= student.fullname %></a> 
+                        </td>
+                        <td>
+                            <%= student.faculty %>
+                        </td>
+                        <td>
+                            <!-- <a href='/exams/<%= //student._id %>'> Exams </a>  -->
+                            <a href='/exams/<%= student._id %>'> Exams </a> 
+                        </td>
+                        <td>
+                            <a href='students/<%= student._id %>/edit'>Edit</a> 
+                        </td>
+                        <td>    
+                            <!-- <a  data-confirm="Are you sure?" data-method="delete" href='students/<%= student._id %>?_method=DELETE'>Delete</a>  -->
+                            <FORM action="students/<%= student._id %>?_method=DELETE" method="POST">
+                                <input type="submit" onclick="return confirm('Are you sure?')" value="Delete"></FORM>
+                        
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            
+            <% } else { %>
+                <H1>No Record Found</H1>
+                <% } %>
+                <input type="button" onclick = "window.location.href+='/add'" value = "Add new student" /> 
+        </div>
+        
+    </div>
+
+
+  
+</body>
+
+</html>

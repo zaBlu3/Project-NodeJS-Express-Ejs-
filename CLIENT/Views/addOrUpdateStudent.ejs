@@ -1,0 +1,65 @@
+
+<%- include('header', {title })  %> 
+    <body>   
+    <div class="container"> 
+<h1><%= title  %> </h1>
+
+<h5 id="status">  <%=student.status %> </h5>
+
+<form <% if (title == "Update Student" && student.status == undefined) {%> action="<%=url.substring(0, url.lastIndexOf('/'))+"?_method=PUT"
+    %>"<% } %>  method="post" >
+
+    <table>
+
+        <tr>
+            <td>Name : </td>
+            <td>
+                <input   autocomplete="none" type="text" placeholder="Enter Full Name (only A-Z)" name="fullname" value ="<%=student.fullname %>" required min="5"> </td>
+                <td class="error">
+                    <%=student.fullnameError %>
+                </td>
+        </tr>
+        <tr>
+            <td> Email :</td>
+            <td>
+                <input autocomplete="none" type="text" placeholder="Enter Email" name="email" value ="<%=student.email %>" required min="10">
+            </td>
+            <td class="error">
+                <%=student.emailError %>
+            </td>
+        </tr>
+        <tr>
+            <td>faculty :</td>
+            <td>
+                <input autocomplete="none" type="text" placeholder="Enter faculty" name="faculty" value ="<%=student.faculty %>" required>
+            </td>
+            <td class="error">
+                <%=student.facultyError %>
+            </td>
+        </tr>
+        <tr>
+        <td>birthDate :</td>
+            <td>
+                <input autocomplete="none" type="date" placeholder="Enter birth date" name="birthDate" min='1901-01-01' 
+                max ="<%=moment().subtract(18,"years").format( 'YYYY-MM-DD') %>"
+                value ="<%=student.birthDate != undefined && moment(student.birthDate).format( 'YYYY-MM-DD') %>" required>
+            </td>
+            <td></td>
+        </tr>
+       
+        <%console.log(student.birthDateError) %>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="<%= title  %> " >
+                  <!-- <input type="button" value="Display" onclick="window.location='display'"> -->
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    
+</div>
+  
+
+    
+</body>

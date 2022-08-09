@@ -1,0 +1,69 @@
+<%- include('header', {title: "Exam Table"}) %>
+
+
+<body>
+ 
+    <div class="container">
+        
+       
+    
+    <% if(exams.length>0) { %>
+
+        <table border="1">
+            <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Date</th>
+                <th>Grade</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+      
+            </tr>
+            <% exams.forEach(exam=> { %>
+                <tr>
+                    <td>
+                        <%= exam.name%>
+                    </td>
+                    <td>
+                        <%= moment(exam.date).format('LLLL')%>
+                    </td>
+                    <td>
+                        <%= exam.grade%>
+                    </td>
+                    <td>
+                        <form action="<%=url%>/edit" method="POST">
+                            <input type="hidden" name="_id" value="<%= exam._id%>" />
+                            <button type="submit">edit</button>
+                        </form>
+                    </td>
+                    <td>
+                          
+                        <form onsubmit="return confirm('Do you really want to Delete this exam?');" action="?_method=DELETE" method="POST">
+                            <input type="hidden" name="_id" value="<%= exam._id%>" />
+                            <button type="submit">delete</button>
+                        </form>
+
+                    </td>
+
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+      
+
+
+        <% } else { %>
+           <h1>No Exams Found</h1> 
+            <% } %>
+  
+                <br>
+                <button onclick="window.location.href+=`/add`"> add new exam</button>
+            </div>
+</body>
+
+</html>
